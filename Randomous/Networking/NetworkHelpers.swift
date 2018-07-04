@@ -11,7 +11,7 @@ import Foundation
 struct GetAllUsers: RequestType {
     typealias ResponseType = RandomResult
     var data: RequestData {
-        return RequestData(path: "https://randomuser.me/api/?results=10")
+        return RequestData(path: "https://randomuser.me/api/?results=20")
     }
 }
 
@@ -106,7 +106,7 @@ public extension RequestType {
             onSuccess: { (responseData: Data) in
                 do {
                     let jsonDecoder = JSONDecoder()
-                    jsonDecoder.dateDecodingStrategy = .secondsSince1970
+                    jsonDecoder.dateDecodingStrategy = .iso8601
                     let result = try jsonDecoder.decode(ResponseType.self, from: responseData)
                     DispatchQueue.main.async {
                         onSuccess(result)

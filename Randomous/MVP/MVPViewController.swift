@@ -13,17 +13,13 @@ class ViewController: UIViewController {
     
     @IBOutlet var userTableView: UITableView!
     
-    var userData: [User]?
+    var users = UserList()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GetAllUsers().execute(onSuccess: { (data: RandomResult) in
-            self.userData = data.results
-            self.interfaceUpdate()
-        }, onError: { (error: Error) in
-            print(error)
-        })
+        NotificationCenter.default.addObserver(self, selector: #selector(interfaceUpdated), name: .UserDataFetched, object: nil)
+        users.fetchData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +27,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func interfaceUpdate() {
+    @objc func interfaceUpdated() {
         userTableView.reloadData()
     }
     
@@ -48,13 +44,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userData?.count ?? 0
+        return users.userData?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.deselectRow(at: indexPath, animated: true)
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableCell") as! UserTableCell
-        if let users = userData {
+        if let users = users.userData {
             cell.updateUserInfo(user: users[indexPath.row])
         }
         return cell
@@ -62,7 +58,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let users = userData {
+        if let users = users.userData {
             invokeDetailSceneFor(user: users[indexPath.row])
         }
     }
@@ -71,8 +67,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 class UserTableCell: UITableViewCell {
     @IBOutlet var userAvatar: UIImageView!
     @IBOutlet var userName: UILabel!
+    @IBOutlet var userGenderLabel: UILabel!
+    @IBOutlet var userBDayLabel: UILabel!
     
     func updateUserInfo(user: User) {
         userAvatar.sd_setImage(with: URL(string: user.picture.large), placeholderImage: UIImage(named: "avatar"))
+        userName.text = "\(user.name.first) \(user.name.last)"
+        switch user.gender {
+        case "male":
+            userGenderLabel.text = "👦🏼"
+        case "female":
+            userGenderLabel.text = "👩🏼"
+        default:
+            userGenderLabel.text = "🌈"
+        }
+        userBDayLabel.text = "\(user.dob.date)"
     }
 }

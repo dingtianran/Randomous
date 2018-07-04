@@ -19,6 +19,12 @@ struct User: Codable {
     let cell: String?
     let name: Name
     let picture: Picture
+    let dob: BirthDay
+}
+
+struct BirthDay: Codable {
+    let date: Date
+    let age: Int
 }
 
 struct Picture: Codable {
