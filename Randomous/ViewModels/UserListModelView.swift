@@ -14,15 +14,24 @@ extension Notification.Name {
 }
 
 class UserList {
-    var userData: [User]?
+    var userData = [User]()
+    var page = 1
+    var busy = false
     
     func fetchData() {
-        GetAllUsers().execute(onSuccess: { (data: RandomResult) in
-            print(data.results)
-            self.userData = data.results
+        //Only fetch new data when there's no concurrent tast
+        guard busy == false else { return }
+        
+        busy = true
+        GetAllUsers(pageSize: Const.UserPageSize, pageIndex: page).execute(onSuccess: { (data: RandomResult) in
+            self.userData.append(contentsOf: data.results)
             NotificationCenter.default.post(name: .UserDataFetched, object: nil)
+            self.page += 1
+            self.busy = false
         }, onError: { (error: Error) in
+            NotificationCenter.default.post(name: .UserDataFetched, object: nil)
             print(error)
+            self.busy = false
         })
     }
     

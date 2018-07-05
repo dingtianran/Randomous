@@ -10,8 +10,11 @@ import Foundation
 
 struct GetAllUsers: RequestType {
     typealias ResponseType = RandomResult
+    var pageSize: Int
+    var pageIndex: Int
     var data: RequestData {
-        return RequestData(path: "https://randomuser.me/api/?results=20")
+        let getPath = "https://randomuser.me/api/?seed=123" + "&results=\(pageSize)" + "&page=\(pageIndex)"
+        return RequestData(path: getPath)
     }
 }
 

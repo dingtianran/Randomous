@@ -126,20 +126,49 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
-        <!--User Detail View Controller-->
+        <!--Title-->
         <scene sceneID="OEH-us-9iV">
             <objects>
                 <viewController storyboardIdentifier="UserDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Xw-Bd-dsh" customClass="UserDetailViewController" customModule="Randomous" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rzJ-Cp-GFT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ueT-Wb-7IJ">
+                                <rect key="frame" x="67.5" y="20" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="K6W-yc-0ej"/>
+                                    <constraint firstAttribute="height" constant="240" id="Uek-fB-4F1"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ryd-DT-F3G">
+                                <rect key="frame" x="16" y="268" width="343" height="379"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zk7-me-t64" firstAttribute="bottom" secondItem="Ryd-DT-F3G" secondAttribute="bottom" constant="20" id="22L-7F-Lch"/>
+                            <constraint firstItem="Ryd-DT-F3G" firstAttribute="top" secondItem="ueT-Wb-7IJ" secondAttribute="bottom" constant="8" id="6Ip-tK-Dy8"/>
+                            <constraint firstItem="ueT-Wb-7IJ" firstAttribute="centerX" secondItem="rzJ-Cp-GFT" secondAttribute="centerX" id="6zc-Br-3MV"/>
+                            <constraint firstItem="Ryd-DT-F3G" firstAttribute="leading" secondItem="zk7-me-t64" secondAttribute="leading" constant="16" id="KR7-qw-e8R"/>
+                            <constraint firstItem="ueT-Wb-7IJ" firstAttribute="top" secondItem="zk7-me-t64" secondAttribute="top" id="UkD-7o-aA2"/>
+                            <constraint firstItem="zk7-me-t64" firstAttribute="trailing" secondItem="Ryd-DT-F3G" secondAttribute="trailing" constant="16" id="mHi-Oe-oDf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zk7-me-t64"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="fqz-vc-n2X"/>
+                    <connections>
+                        <outlet property="avatarImageView" destination="ueT-Wb-7IJ" id="rRs-o9-URE"/>
+                        <outlet property="detailTextView" destination="Ryd-DT-F3G" id="czm-Bc-ed8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S2F-K3-yYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="133"/>
+            <point key="canvasLocation" x="948" y="132.68365817091455"/>
         </scene>
         <!--Random Navigation Controller-->
         <scene sceneID="QQ4-JB-BbQ">

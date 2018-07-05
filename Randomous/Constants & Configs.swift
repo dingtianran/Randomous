@@ -8,3 +8,6 @@
 
 import Foundation
 
+struct Const {
+    static let UserPageSize = 20
+}
