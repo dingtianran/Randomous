@@ -1,12 +1,15 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '11.0'
+use_frameworks!
 
 target 'Randomous' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for Randomous
-
   pod 'SDWebImage', '~> 4.0'
+end
 
+target 'RandomousTests' do
+  pod 'SDWebImage', '~> 4.0'
+end
+
+target 'RandomousUITests' do
+  pod 'SDWebImage', '~> 4.0'
 end

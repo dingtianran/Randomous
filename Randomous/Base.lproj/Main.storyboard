@@ -47,6 +47,9 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M3d-Zo-7XB">
                                                     <rect key="frame" x="15" y="6" width="87" height="87"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="87" id="h7D-cX-7vY"/>
                                                     </constraints>
@@ -94,6 +97,9 @@
                                                 <constraint firstItem="9Ih-Rf-FZO" firstAttribute="leading" secondItem="bDd-V1-HFb" secondAttribute="trailing" constant="8" id="qKq-7S-vjT"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <outlet property="userAvatar" destination="M3d-Zo-7XB" id="xox-JD-m1o"/>
                                             <outlet property="userBDayLabel" destination="9Ih-Rf-FZO" id="5LX-Tb-2UJ"/>
@@ -109,6 +115,9 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="RV5-Th-ItH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MS2-0O-TaI"/>
                             <constraint firstItem="RV5-Th-ItH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lxa-uN-weQ"/>
@@ -126,7 +135,7 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
-        <!--Title-->
+        <!--User Detail View Controller-->
         <scene sceneID="OEH-us-9iV">
             <objects>
                 <viewController storyboardIdentifier="UserDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Xw-Bd-dsh" customClass="UserDetailViewController" customModule="Randomous" customModuleProvider="target" sceneMemberID="viewController">
@@ -136,6 +145,9 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ueT-Wb-7IJ">
                                 <rect key="frame" x="67.5" y="20" width="240" height="240"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="K6W-yc-0ej"/>
                                     <constraint firstAttribute="height" constant="240" id="Uek-fB-4F1"/>
@@ -150,6 +162,9 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="zk7-me-t64" firstAttribute="bottom" secondItem="Ryd-DT-F3G" secondAttribute="bottom" constant="20" id="22L-7F-Lch"/>
                             <constraint firstItem="Ryd-DT-F3G" firstAttribute="top" secondItem="ueT-Wb-7IJ" secondAttribute="bottom" constant="8" id="6Ip-tK-Dy8"/>
@@ -160,7 +175,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zk7-me-t64"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="fqz-vc-n2X"/>
                     <connections>
                         <outlet property="avatarImageView" destination="ueT-Wb-7IJ" id="rRs-o9-URE"/>
                         <outlet property="detailTextView" destination="Ryd-DT-F3G" id="czm-Bc-ed8"/>
